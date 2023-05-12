@@ -27,3 +27,7 @@ function toggleMenu() {
 
 // Event Listeners
 menuBars.addEventListener('click', toggleMenu);
+nav1.addEventListener('click', toggleMenu);
+nav2.addEventListener('click', toggleMenu);
+nav3.addEventListener('click', toggleMenu);
+nav4.addEventListener('click', toggleMenu);

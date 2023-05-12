@@ -214,6 +214,9 @@ header {
   @media screen and (max-width: 900px){
     /*  Replace Nav with Hamb buttom */
     .menu-bars {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
       display: block;
     }
 
