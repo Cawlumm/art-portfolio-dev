@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+  --primaryColor: whitesmoke;
+  --navColor1: whitesmoke;
+  --navColor2: #aa3e39;
+  --navColor3: #aa6e39;
+  --navColor4: #236267;
+  --navColor5: #2c8437;
+}
+
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Source Sans Pro, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primaryColor);
+}
+
+/*====================================================================
+                            Header Styles   
+====================================================================*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    text-shadow: -6px 3px 20px rgba(0 , 0 , 0, 0.6);
+  }
+  
+ .header-nav nav {
+    display: fixed;
+    display: flex;
+  }
+  
+  .header-nav nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-nav nav li {
+    margin-right: 10px;
+  }
+  
+  .header-nav nav a {
+    font-size: 1.5rem;
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .header-nav nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateX(-100vw);
+    display: flex;
+  }
+
+  /* Nav Menu Items */
+  .overlay nav,
+  .overlay nav ul {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .overlay nav ul li {
+    height: 20%;
+    overflow: hidden;
+  }
+
+  .overlay nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    list-style: none;
+  }
+
+  .overlay nav li a {
+    position: relative;
+    top: 45%;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+
+  .overlay-slide-right {
+    transition: all 0.4s ease-in-out;
+    transform: translateX(0);
+  }
+  
+  .overlay-slide-left {
+    transition: all 1.2s ease-in-out;
+    transform: translateX(-100vw);
+  }
+
+  /* Slide in animation with delay for each */
+  .slide-in-1 {
+    animation: slide-in 0.4s linear 0.2s both;
+  }
+
+  .slide-in-2 {
+    animation: slide-in 0.4s linear 0.4s both;
+  }
+
+  .slide-in-3 {
+    animation: slide-in 0.4s linear 0.6s both;
+  }
+
+  .slide-in-4 {
+    animation: slide-in 0.4s linear 0.8s both;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Slide out animation with delay for each */
+  .slide-out-1 {
+    animation: slide-out 0.3s linear 0.5s both;
+  }
+
+  .slide-out-2 {
+    animation: slide-out 0.3s linear 0.4s both;
+  }
+
+  .slide-out-3 {
+    animation: slide-out 0.3s linear 0.3s both;
+  }
+
+  .slide-out-4 {
+    animation: slide-out 0.3s linear 0.2s both;
+  }
+
+  .slide-out-5 {
+    animation: slide-out 0.3s linear 0.1s both;
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Menu Bars Styles */
+  .menu-bars {
+    display: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  /* Rotate first bar */
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  /* Fade out the second bar */
+  .change .bar2 {opacity: 0;}
+
+  /* Rotate last bar */
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+ /* Media Query: Large and Small Phones */
+  @media screen and (max-width: 900px){
+    /*  Replace Nav with Hamb buttom */
+    .menu-bars {
+      display: block;
+    }
+
+    .header-nav nav {
+      display: none;
+    }
+
+    .header-title {
+      font-size: 1rem;
+    }
+  }
+  /*====================================================================
+                            body Styles   
+====================================================================*/
+
+  .body-image {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+  }
+
+  .body-image:hover .see-more {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .body-image img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    transition: all 0.8s ease-in-out; /* added a transition for the hover effect */
+ }
+
+  .body-image:hover {
+    cursor: pointer; /* added a pointer cursor on hover */
+  }
+  .see-more {
+    height: 4%;
+    width: auto;
+    font-size: 2em;
+    position: absolute;
+    bottom: 5%; /* move the div outside of the body-image */
+    left: 20%; /* center the div horizontally */
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, bottom 0.1s ease-in
+  }
+
+  .see-more:hover {
+    
+  }
