@@ -235,7 +235,7 @@ header {
 /* Slide Show */
   .slideshow {
     width: 100%;
-    height: 400px; /* Adjust the height as needed */
+    height: 500px; /* Adjust the height as needed */
     overflow: hidden;
   }
 
@@ -253,7 +253,7 @@ header {
 
   /* Context */
   .context {
-    padding-top: 200px;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center; /* Center vertically */
@@ -276,7 +276,7 @@ header {
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 
@@ -293,46 +293,105 @@ header {
     line-height: 1.5;
     color: #333;
     margin-bottom: 20px;
+    opacity: 0;
+    max-width: 800px;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .context .context-text.animate {
+    animation: slideUp 1s ease-in-out forwards;
   }
 
   .context .context-text::first-letter {
-    font-size: 24px;
     text-decoration: solid;
   }
 
+  /* Trips Section */
+  .trips {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+  }
+
+  .trips img {
+    align-self: center; /* Center vertically */
+    object-fit: contain; /* Adjust the image sizing behavior as needed */
+    margin: 0 auto; /* Center horizontally */
+    height: 30rem;
+    width: 30rem;
+    opacity: 1;
+    /* transform: translateX(-200px); */
+  }
+
+  .trips .trips-text {
+    margin: 0 auto; /* Center horizontally */
+    padding: 70px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
+
   /* Media Query: Mobile Devices: Phones */
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1025px) {
+    /* Context Styles */
     .context {
       flex-direction: column;
     }
     
-    .context img {
-      padding: 20px;
-      max-width: 70%;
+    .context img, .trips img {
+      padding: 10px 0;
+      max-width: 50%;
       max-height: 60%;
       height: auto;
       width: auto;
     }
-  }
 
-  /* Media Query: Mobile Devices: Tablets */
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .context img {
-      padding: 20px;
-      max-width: 40%;
-      max-height: 40%;
-      height: auto;
-      width: auto;
+    .context .context-text, .trips .trips-text {
+      font-size: 1.5rem;
     }
+
+    .context .context-text::first-letter, .trips .trips-text::first-letter {
+      font-size: 2.5rem;
+      text-decoration: solid;
+    }
+
+    .trips {
+      flex-direction: column-reverse;
+    }
+
   }
 
   /* Media Query: Larger Screens */
   @media only screen and (min-width: 1024px) {
-    .context img {
+    /* Conte */
+    .context img, .trips img {
       padding: 20px;
       max-width: 80%;
       max-height: 80%;
       height: auto;
       width: auto;
+    }
+
+    .context .context-text, .trips .trips-text {
+      font-size: 2rem;
+    }
+
+    .context .context-text::first-letter, .trips .trips-text::first-letter {
+      font-size: 3rem;
+      text-decoration: solid;
     }
   }
