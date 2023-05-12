@@ -24,6 +24,16 @@ function toggleMenu() {
         nav4.classList.replace('slide-in-4', 'slide-out-4');
     }
 }
+// Function for slide show using slick
+function slideShow() {
+    $('.slideshow').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false
+      });
+}
 
 // Event Listeners
 menuBars.addEventListener('click', toggleMenu);
@@ -31,3 +41,4 @@ nav1.addEventListener('click', toggleMenu);
 nav2.addEventListener('click', toggleMenu);
 nav3.addEventListener('click', toggleMenu);
 nav4.addEventListener('click', toggleMenu);
+slideShow();
