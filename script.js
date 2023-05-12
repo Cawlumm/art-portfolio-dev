@@ -4,6 +4,7 @@ const nav1 = document.getElementById('nav-1');
 const nav2 = document.getElementById('nav-2');
 const nav3 = document.getElementById('nav-3');
 const nav4 = document.getElementById('nav-4');
+let slides = document.getElementById('slideshow');
 
 // Toggle Menu On and Off
 function toggleMenu() {
@@ -24,14 +25,27 @@ function toggleMenu() {
         nav4.classList.replace('slide-in-4', 'slide-out-4');
     }
 }
+
+// Function to populate images dynamically into slideshow
+function addImages() {
+    for (let i = 0; i < imgFiles.length; i++) {
+        let img = document.createElement('img');
+        img.src = imgFiles[i];
+        img.alt = imgAlt[i];
+        slides.appendChild(img);
+    }
+}
+
 // Function for slide show using slick
 function slideShow() {
+    addImages();
     $('.slideshow').slick({
         slidesToShow: 2,
+        infinite: true,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false
+        autoplaySpeed: 4000,
+        arrows: false,
       });
 }
 
