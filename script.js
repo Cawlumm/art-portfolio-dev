@@ -5,7 +5,17 @@ const nav2 = document.getElementById('nav-2');
 const nav3 = document.getElementById('nav-3');
 const nav4 = document.getElementById('nav-4');
 let slides = document.getElementById('slideshow');
+const context = document.querySelector('.context img');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        context.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
 
+  
 // Toggle Menu On and Off
 function toggleMenu() {
     menuBars.classList.toggle('change');
@@ -56,3 +66,4 @@ nav2.addEventListener('click', toggleMenu);
 nav3.addEventListener('click', toggleMenu);
 nav4.addEventListener('click', toggleMenu);
 slideShow();
+observer.observe(context);
