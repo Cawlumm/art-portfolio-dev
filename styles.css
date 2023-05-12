@@ -329,8 +329,12 @@ header {
     margin: 0 auto; /* Center horizontally */
     height: 30rem;
     width: 30rem;
+    opacity: 0;
+    transform: translateX(-200px); 
+  }
+  .trips img.animate {
+    animation: slideIn 1s ease-in-out forwards;
     opacity: 1;
-    /* transform: translateX(-200px); */
   }
 
   .trips .trips-text {
@@ -343,6 +347,12 @@ header {
     color: #333;
     margin-bottom: 20px;
     max-width: 800px;
+    opacity: 0;
+  }
+
+  .trips .trips-text.animate {
+    animation: slideUp 1s ease-in-out forwards;
+    opacity: 1;
   }
 
   /* Media Query: Mobile Devices: Phones */

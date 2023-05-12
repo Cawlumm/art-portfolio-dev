@@ -7,6 +7,8 @@ const nav4 = document.getElementById('nav-4');
 let slides = document.getElementById('slideshow');
 const contextImg = document.querySelector('.context img');
 const contextText = document.querySelector('.context .context-text');
+const tripImg = document.querySelector('.trips img');
+const tripText = document.querySelector('.trips .trips-text');
 const img1Observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -23,7 +25,22 @@ const img1Observer = new IntersectionObserver(entries => {
       }
     });
   });
-
+  const img2Observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tripImg.classList.add('animate');
+        img2Observer.unobserve(entry.target);
+      }
+    });
+  });
+  const text2Observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tripText.classList.add('animate');
+        text2Observer.unobserve(entry.target);
+      }
+    });
+  });
   
 // Toggle Menu On and Off
 function toggleMenu() {
@@ -75,5 +92,9 @@ nav2.addEventListener('click', toggleMenu);
 nav3.addEventListener('click', toggleMenu);
 nav4.addEventListener('click', toggleMenu);
 slideShow();
+
+// Observe Listeners to animate context dynamically when reached by user
 img1Observer.observe(contextImg);
 text1Observer.observe(contextText);
+img2Observer.observe(tripImg);
+text2Observer.observe(tripText);
